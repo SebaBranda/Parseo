@@ -139,7 +139,7 @@ Permite describir de manera sencilla acciones, decisiones y repeticiones que eje
 
 2. **Identificadores**:  
 - Secuencia de letras y dígitos, comenzando con letra.  
-- Puede incluir `_`.  
+-- Puede incluir `_`.  
 - Ejemplo: `luz_actual`, `nivel10`, `contador_ruido`.  
 
 3. **Números**:  
@@ -163,52 +163,52 @@ Resumen de la gramática en BNF:
 
 - **Programa**: Secuencia de instrucciones.  
 - **Instrucción**:  
-- Declaración de atributo  
-- Condicional  
-- Ciclo  
-- Acción básica  
+-- Declaración de atributo  
+-- Condicional  
+-- Ciclo  
+-- Acción básica  
 - **Condicional**:  
-si `<condicion>`, entonces `<bloque>` [sino `<bloque>`]
+--si `<condicion>`, entonces `<bloque>` [sino `<bloque>`]
 - **Ciclo**:  
-repite `<numero>` veces: `<bloque>`
-mientras `<condicion>`: `<bloque>`
+--repite `<numero>` veces: `<bloque>`
+--mientras `<condicion>`: `<bloque>`
 - **Acciones**:  
-mover `<direccion>`
-interactuar_con `<entidad>`
-manifestar `<valor>`
-transicionar_a `<lugar>`
+--mover `<direccion>`
+--interactuar_con `<entidad>`
+--manifestar `<valor>`
+--transicionar_a `<lugar>`
 - **Expresiones numéricas**:  
-- `mas`, `menos`, `multiplicado_por`, `dividido_por`  
+-- `mas`, `menos`, `multiplicado_por`, `dividido_por`  
 
 ---
 
 ## Especificaciones semánticas
 - **Tipado**:  
-- Débil y dinámico.  
+-- Débil y dinámico.  
 - Los identificadores adquieren tipo (numérico o cadena) en tiempo de ejecución.  
-- `mas` → suma (números) o concatenación (texto).  
+-- `mas` → suma (números) o concatenación (texto).  
 
 - **Alcance**:  
-- Global con anidación estática.  
-- Las variables definidas en un bloque son visibles en sub-bloques.  
+-- Global con anidación estática.  
+-- Las variables definidas en un bloque son visibles en sub-bloques.  
 
 - **Condicionales**:  
-- Evalúan expresiones lógicas.  
-- Ejecutan bloque `entonces` o `sino`.  
+-- Evalúan expresiones lógicas.  
+-- Ejecutan bloque `entonces` o `sino`.  
 
 - **Bucles**:  
-- `repite` ejecuta N veces.  
-- `mientras` evalúa condición antes de cada iteración.  
+-- `repite` ejecuta N veces.  
+-- `mientras` evalúa condición antes de cada iteración.  
 
 - **Acciones básicas**:  
-- `mover`: cambia posición.  
-- `interactuar_con`: evento con entidad.  
-- `manifestar`: imprime o muestra valor.  
-- `transicionar_a`: cambia de nivel.  
+-- `mover`: cambia posición.  
+-- `interactuar_con`: evento con entidad.  
+-- `manifestar`: imprime o muestra valor.  
+-- `transicionar_a`: cambia de nivel.  
 
 - **Errores semánticos comunes**:  
-- Identificadores no definidos.  
-- Operaciones inválidas entre tipos.  
-- Referencias a entidades/lugares inexistentes.  
+-- Identificadores no definidos.  
+-- Operaciones inválidas entre tipos.  
+-- Referencias a entidades/lugares inexistentes.  
 
 ---
