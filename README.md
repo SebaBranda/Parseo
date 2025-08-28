@@ -26,10 +26,7 @@ graph LR
         H2["1954: John Backus — FORTRAN (IBM 704)"]:::ramaHist --- H
         H2a["Comienza el desarrollo del compilador de <b>FORTRAN</b>"]:::ramaHist --- H2
 
-        %% Diferencias
-        F[Diferencias]:::ramaDif --- A
-        F1["Intérprete → ejecuta el<br/>código fuente"]:::ramaDif --- F
-        F2["Compilador → produce objeto/binario<br/>y luego se ejecuta"]:::ramaDif --- F
+     
 
         %% Herramientas (dos columnas compactas)
         G["Herramientas de la cadena de compilación"]:::ramaHerr --- A
