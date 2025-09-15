@@ -145,4 +145,112 @@ En ese momento, el escáner "emite" el token y el proceso se repite desde S 0 pa
 | **3 (Cadena)** | 3 | 3 | **0** | 3 | 3 | 3 | 3 | 3 | 3 | 3 | **CADENA** | 1 |
 | **4** | - | - | - | - | - | - | - | - | - | - | **COLON** | 0 |
 | **5** | - | - | - | - | - | - | - | - | - | - | **COMMA** | 0 |
+
 | **6 (Comentario)** | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | **0** | 6 | - | - |
+
+---
+
+Código para implementación
+
+```python\
+# caminante_lex.py
+
+import ply.lex as lex
+
+# 1. Definición de tokens
+tokens = [
+    'IDENTIFIER',
+    'NUMBER',
+    'STRING',
+    'COLON',
+    'COMMA',
+]
+
+# 2. Definición de las palabras reservadas (Keywords)
+reserved = {
+    'establece': 'KEYWORD_ESTABLECE',
+    'detecta': 'KEYWORD_DETECTA',
+    'a': 'KEYWORD_A',
+    'en': 'KEYWORD_EN',
+    'y': 'KEYWORD_Y',
+    'guarda': 'KEYWORD_GUARDA',
+    'si': 'KEYWORD_SI',
+    'entonces': 'KEYWORD_ENTONCES',
+    'sino': 'KEYWORD_SINO',
+    'repite': 'KEYWORD_REPITE',
+    'veces': 'KEYWORD_VECES',
+    'mientras': 'KEYWORD_MIENTRAS',
+    'mover': 'KEYWORD_MOVER',
+    'interactuar_con': 'KEYWORD_INTERACTUAR_CON',
+    'manifestar': 'KEYWORD_MANIFESTAR',
+    'transicionar_a': 'KEYWORD_TRANSICIONAR_A',
+    'mas': 'KEYWORD_MAS',
+    'menos': 'KEYWORD_MENOS',
+    'multiplicado_por': 'KEYWORD_MULTIPLICADO_POR',
+    'dividido_por': 'KEYWORD_DIVIDIDO_POR',
+    'es': 'KEYWORD_ES',
+    'es_mayor_que': 'KEYWORD_ES_MAYOR_QUE',
+    'esta_presente_en': 'KEYWORD_ESTA_PRESENTE_EN',
+}
+
+# Añadir las palabras reservadas a la lista de tokens
+tokens = tokens + list(reserved.values())
+
+# 3. Reglas de expresiones regulares
+t_COLON = r':'
+t_COMMA = r','
+t_STRING = r'\"([^"\\]|\\.)*\"'
+
+# Regla para identificar números. Permite enteros y decimales.
+def t_NUMBER(t):
+    r'\d+(\.\d+)?'
+    t.value = float(t.value) if '.' in t.value else int(t.value)
+    return t
+
+# Regla para identificar identificadores o palabras clave
+def t_IDENTIFIER(t):
+    r'[a-zA-Z_][a-zA-Z0-9_]*'
+    t.type = reserved.get(t.value, 'IDENTIFIER')
+    return t
+
+# 4. Manejo de comentarios y espacios en blanco
+t_ignore = ' \t\r'
+
+# Se ignoran los comentarios de una sola línea que inician con '//' o '#'.
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
+
+def t_comment(t):
+    r'(//.*)|(\#.*)'
+    pass
+
+# 5. Manejo de errores
+def t_error(t):
+    print(f"Illegal character '{t.value[0]}' at line {t.lineno}")
+    t.lexer.skip(1)
+
+# 6. Construir el analizador léxico
+lexer = lex.lex()
+
+# Ejemplo de uso
+data = """
+# Define el nivel de ruido
+establece ruido_ambiente a 100
+
+si ruido_ambiente es_mayor_que 50, entonces:
+    repite 3 veces:
+        mover "este"
+    manifestar "Demasiado ruido."
+sino:
+    manifestar "Todo en silencio."
+"""
+
+# Dar el código de entrada al analizador léxico
+lexer.input(data)
+
+# Iterar sobre los tokens y mostrarlos
+print("--- Tokens generados ---")
+for tok in lexer:
+    print(f"Token: {tok.type}, Valor: '{tok.value}', Línea: {tok.lineno}")
+```
