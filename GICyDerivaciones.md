@@ -26,7 +26,7 @@ sino:
 
 Prog (Regla 1)
 
-Instruccion
+- Instruccion
 
 Instruccion (Regla 2)
 
