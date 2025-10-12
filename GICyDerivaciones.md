@@ -1,100 +1,24 @@
-md
-### Derivación a Izq. para 'si-entonces'
+## GIC y Derivaciones
 
-Basados en la GIC:
+<programa> ::= INICIO <bloque> FIN
 
-'Programa -> Instruccion | Instruccion Programa'
+<bloque> ::= <instruccion> <bloque> | ε
 
-'Instruccion -> Condicional'
+<instruccion> ::= <movimiento> 
+                | <accion> 
+                | <condicional> 
+                | <bucle>
 
-'Condicional -> si <Condicion>, entonces <Bloque> sino <Bloque> | si <Condicion>, entonces <Bloque>'
+<movimiento> ::= MOVER <direccion>
+<direccion> ::= NORTE | SUR | ESTE | OESTE
 
-'<Condicion> -> ID es_mayor_que NUM'
+<accion> ::= MANIFESTAR <cadena>
 
-'<Bloque> -> mover "dir" | manifestar "mensaje"'
+<condicional> ::= SI <expresion> ENTONCES <bloque> <sino_opcional>
+<sino_opcional> ::= SINO <bloque> | ε
 
-'ID -> 'ruido_ambiente''
+<bucle> ::= MIENTRAS <expresion> HACER <bloque> FINMIENTRAS
 
-'NUM -> '50''
-
-Para:
-
-'si ruido_ambiente es_mayor_que 50, entonces:
-    mover "este"
-sino:
-    manifestar "Demasiado ruido."'
-
-Prog (Regla 1)
-
-- Instruccion
-
-Instruccion (Regla 2)
-
-- Condicional
-
-Condicional (Regla 3)
-
-- si <Condicion>, entonces <Bloque> sino <Bloque>
-
-si <Condicion>, entonces <Bloque> sino <Bloque> (Regla 4)
-
-- si ID es_mayor_que NUM, entonces <Bloque> sino <Bloque>
-
-si ID es_mayor_que NUM, entonces <Bloque> sino <Bloque> (Regla 6)
-
-- si ruido_ambiente es_mayor_que NUM, entonces <Bloque> sino <Bloque>
-
-si ruido_ambiente es_mayor_que NUM, entonces <Bloque> sino <Bloque> (Regla 7)
-
-- si ruido_ambiente es_mayor_que 50, entonces <Bloque> sino <Bloque>
-
-si ruido_ambiente es_mayor_que 50, entonces <Bloque> sino <Bloque> (Regla 5)
-
-- si ruido_ambiente es_mayor_que 50, entonces mover "dir" sino <Bloque>
-
-si ruido_ambiente es_mayor_que 50, entonces mover "dir" sino <Bloque> (Regla 5)
-
-- si ruido_ambiente es_mayor_que 50, entonces mover "dir" sino manifestar "mensaje"
-
-si ruido_ambiente es_mayor_que 50, entonces mover "dir" sino manifestar "mensaje"
-
-- si ruido_ambiente es_mayor_que 50, entonces mover "este" sino manifestar "Demasiado ruido."
-
-### Derivación a Der:
-
-Prog (Regla 1)
-
-- Instruccion
-
-Instruccion (Regla 2)
-
-- Condicional
-
-Condicional (Regla 3)
-
-- si <Condicion>, entonces <Bloque> sino <Bloque>
-
-si <Condicion>, entonces <Bloque> sino <Bloque> (Regla 5)
-
-- si <Condicion>, entonces <Bloque> sino manifestar "mensaje"
-
-si <Condicion>, entonces <Bloque> sino manifestar "mensaje" (Regla 5)
-
-- si <Condicion>, entonces mover "dir" sino manifestar "mensaje"
-
-si <Condicion>, entonces mover "dir" sino manifestar "mensaje" (Regla 4)
-
-- si ID es_mayor_que NUM, entonces mover "dir" sino manifestar "mensaje"
-
-si ID es_mayor_que NUM, entonces mover "dir" sino manifestar "mensaje" (Regla 7)
-
-- si ID es_mayor_que 50, entonces mover "dir" sino manifestar "mensaje"
-
-si ID es_mayor_que 50, entonces mover "dir" sino manifestar "mensaje" (Regla 6)
-
-- si ruido_ambiente es_mayor_que 50, entonces mover "dir" sino manifestar "mensaje"
-
-- si ruido_ambiente es_mayor_que 50, entonces mover "dir" sino manifestar "mensaje"
-
-- si ruido_ambiente es_mayor_que 50, entonces mover "este" sino manifestar "Demasiado ruido."
-
+<expresion> ::= <ident> <operador> <valor>
+<valor> ::= <numero> | <ident> | <cadena>
+<operador> ::= ES_MAYOR_QUE | ES_MENOR_QUE | IGUAL | DISTINTO
