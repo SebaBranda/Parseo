@@ -1,5 +1,6 @@
 ## GIC y Derivaciones
 
+```
 <programa> ::= INICIO <bloque> FIN
 
 <bloque> ::= <instruccion> <bloque> | ε
@@ -22,3 +23,4 @@
 <expresion> ::= <ident> <operador> <valor>
 <valor> ::= <numero> | <ident> | <cadena>
 <operador> ::= ES_MAYOR_QUE | ES_MENOR_QUE | IGUAL | DISTINTO
+```
