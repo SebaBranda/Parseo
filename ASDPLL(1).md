@@ -1,19 +1,20 @@
-Traza del Analizador ASDP LL(1)
---- INICIO DEL PARSEO LL(1) ---
-PILA                             | ENTRADA (Lookahead)  | ACCION
-----------------------------------------------------------------------
-$S                               | INICIO               | EXPANDIR S -> INICIO I FIN
-$FIN I INICIO                    | INICIO               | MATCH INICIO
-$FIN I                           | MOVER                | EXPANDIR I -> INSTRUCCION I
-$FIN I INSTRUCCION               | MOVER                | EXPANDIR INSTRUCCION -> MOVER
-$FIN I MOVER                     | MOVER                | EXPANDIR MOVER -> MOVER DIRECCION
-$FIN I DIRECCION MOVER           | MOVER                | MATCH MOVER
-$FIN I DIRECCION                 | NORTE                | EXPANDIR DIRECCION -> NORTE
-$FIN I NORTE                     | NORTE                | MATCH NORTE
-$FIN I                           | FIN                  | EXPANDIR I -> epsilon
-$FIN                             | FIN                  | MATCH FIN
-$                                | $                    | ÉXITO: Cadena aceptada.
-----------------------------------------------------------------------
+## Traza del Analizador ASDP LL(1)
+ - INICIO DEL PARSEO LL(1) 
+
+|PILA                            | ENTRADA             | ACCION                            |
+|--------------------------------|---------------------|-----------------------------------|
+|$S                              | INICIO              | EXPANDIR S -> INICIO I FIN        |
+|$FIN I INICIO                   | INICIO              | MATCH INICIO                      |
+|$FIN I                          | MOVER               | EXPANDIR I -> INSTRUCCION I       |
+|$FIN I INSTRUCCION              | MOVER               | EXPANDIR INSTRUCCION -> MOVER     |
+|$FIN I MOVER                    | MOVER               | EXPANDIR MOVER -> MOVER DIRECCION |
+|$FIN I DIRECCION MOVER          | MOVER               | MATCH MOVER                       |
+|$FIN I DIRECCION                | NORTE               | EXPANDIR DIRECCION -> NORTE       |
+|$FIN I NORTE                    | NORTE               | MATCH NORTE                       |
+|$FIN I                          | FIN                 | EXPANDIR I -> epsilon             |
+|$FIN                            | FIN                 | MATCH FIN                         |
+|$                               | $                   | ÉXITO: Cadena aceptada.           |
+|--------------------------------|---------------------|-----------------------------------|
 RESULTADO FINAL: ÉXITO: Cadena aceptada.
 
 ## Conjuntos PRIM (FIRST) y SIG (FOLLOW)
