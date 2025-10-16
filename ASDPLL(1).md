@@ -17,23 +17,23 @@
 |--------------------------------|---------------------|-----------------------------------|
 RESULTADO FINAL: ÉXITO: Cadena aceptada.
 
-## Conjuntos PRIM (FIRST) y SIG (FOLLOW)
+## Conjuntos PRIM y SIG
 
 | **Conjunto** | **Cálculo**                      | **Resultado**               |
 | :----------- | :------------------------------- | :-------------------------- |
-| **PRIM(C)**  | FIRST(C → SINO I) ∪ FIRST(C → ϵ) | { SINO, ϵ }                 |
-| **SIG(C)**   | FOLLOW(C)                        | { FIN, MOVER, SI, SINO, … } |
+| **PRIM(C)**  | PRIM(C → SINO I) ∪ FIRST(C → ϵ)  | { SINO, ϵ }                 |
+| **SIG(C)**   | SIG(C)                           | { FIN, MOVER, SI, SINO, … } |
 
 ## Conjuntos Predictivos (PRED)
 
 | **Producción** | **PRED(C → α)** | **Resultado**               |
 | :------------- | :-------------- | :-------------------------- |
-| **C → SINO I** | FIRST(SINO I)   | { SINO }                    |
-| **C → ϵ**      | FOLLOW(C)       | { FIN, MOVER, SI, SINO, … } |
+| **C → SINO I** | PRIM(SINO I)    | { SINO }                    |
+| **C → ϵ**      | SIG(C)          | { FIN, MOVER, SI, SINO, … } |
 
 ## Test de Condición LL(1)
 
 | **Condición**                  | **Operación**                          | **Intersección** | **¿Es LL(1)?**                           |
 | :----------------------------- | :------------------------------------- | :--------------- | :--------------------------------------- |
-| PRED(C → SINO I) ∩ PRED(C → ϵ) | { SINO } ∩ { FIN, MOVER, SI, SINO, … } | { SINO }         | ❌ No, porque la intersección no es vacía |
+| PRED(C → SINO I) ∩ PRED(C → ϵ) | { SINO } ∩ { FIN, MOVER, SI, SINO, … } | { SINO }         | No, porque la intersección no es vacía   |
 
