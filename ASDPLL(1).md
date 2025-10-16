@@ -21,7 +21,7 @@ RESULTADO FINAL: ÉXITO: Cadena aceptada.
 
 | **Conjunto** | **Cálculo**                      | **Resultado**               |
 | :----------- | :------------------------------- | :-------------------------- |
-| **PRIM(C)**  | PRIM(C → SINO I) ∪ FIRST(C → ϵ)  | { SINO, ϵ }                 |
+| **PRIM(C)**  | PRIM(C → SINO I) ∪ PRIM(C → ϵ)   | { SINO, ϵ }                 |
 | **SIG(C)**   | SIG(C)                           | { FIN, MOVER, SI, SINO, … } |
 
 ## Conjuntos Predictivos (PRED)
