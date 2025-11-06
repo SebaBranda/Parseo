@@ -1,8 +1,10 @@
 # TT y TS
 
 ## Secuencia 1:
-'''
-inicio mover norte fin '''
+```
+inicio mover norte fin
+```
+
 
 ## Tabla de Tipos
 
@@ -26,11 +28,12 @@ inicio mover norte fin '''
 ---
 
 ## Secuencia 2:
-'''
+```
 inicio
 mover norte
 si obstaculo entonces mover este
-fin '''
+fin
+```
 
 ## Tabla de Tipos
 
