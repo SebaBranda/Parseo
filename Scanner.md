@@ -150,107 +150,40 @@ En ese momento, el escáner "emite" el token y el proceso se repite desde S 0 pa
 
 ---
 
-Código para implementación
+Implementación del scanner
 
-```python\
-# caminante_lex.py
+El código de implementación del scanner se mantiene como archivo separado y canonico: `caminante_lex.py`.
+Para evitar inconsistencias, no mantengas una copia completa del código dentro de esta documentación. Si necesitas ver o modificar el lexer, edita `caminante_lex.py` directamente.
 
-import ply.lex as lex
+Ejecuta el scanner de prueba con:
 
-# 1. Definición de tokens
-tokens = [
-    'IDENTIFIER',
-    'NUMBER',
-    'STRING',
-    'COLON',
-    'COMMA',
-]
-
-# 2. Definición de las palabras reservadas (Keywords)
-reserved = {
-    'establece': 'KEYWORD_ESTABLECE',
-    'detecta': 'KEYWORD_DETECTA',
-    'a': 'KEYWORD_A',
-    'en': 'KEYWORD_EN',
-    'y': 'KEYWORD_Y',
-    'guarda': 'KEYWORD_GUARDA',
-    'si': 'KEYWORD_SI',
-    'entonces': 'KEYWORD_ENTONCES',
-    'sino': 'KEYWORD_SINO',
-    'repite': 'KEYWORD_REPITE',
-    'veces': 'KEYWORD_VECES',
-    'mientras': 'KEYWORD_MIENTRAS',
-    'mover': 'KEYWORD_MOVER',
-    'interactuar_con': 'KEYWORD_INTERACTUAR_CON',
-    'manifestar': 'KEYWORD_MANIFESTAR',
-    'transicionar_a': 'KEYWORD_TRANSICIONAR_A',
-    'mas': 'KEYWORD_MAS',
-    'menos': 'KEYWORD_MENOS',
-    'multiplicado_por': 'KEYWORD_MULTIPLICADO_POR',
-    'dividido_por': 'KEYWORD_DIVIDIDO_POR',
-    'es': 'KEYWORD_ES',
-    'es_mayor_que': 'KEYWORD_ES_MAYOR_QUE',
-    'esta_presente_en': 'KEYWORD_ESTA_PRESENTE_EN',
-}
-
-# Añadir las palabras reservadas a la lista de tokens
-tokens = tokens + list(reserved.values())
-
-# 3. Reglas de expresiones regulares
-t_COLON = r':'
-t_COMMA = r','
-t_STRING = r'\"([^"\\]|\\.)*\"'
-
-# Regla para identificar números. Permite enteros y decimales.
-def t_NUMBER(t):
-    r'\d+(\.\d+)?'
-    t.value = float(t.value) if '.' in t.value else int(t.value)
-    return t
-
-# Regla para identificar identificadores o palabras clave
-def t_IDENTIFIER(t):
-    r'[a-zA-Z_][a-zA-Z0-9_]*'
-    t.type = reserved.get(t.value, 'IDENTIFIER')
-    return t
-
-# 4. Manejo de comentarios y espacios en blanco
-t_ignore = ' \t\r'
-
-# Se ignoran los comentarios de una sola línea que inician con '//' o '#'.
-def t_newline(t):
-    r'\n+'
-    t.lexer.lineno += len(t.value)
-
-def t_comment(t):
-    r'(//.*)|(\#.*)'
-    pass
-
-# 5. Manejo de errores
-def t_error(t):
-    print(f"Illegal character '{t.value[0]}' at line {t.lineno}")
-    t.lexer.skip(1)
-
-# 6. Construir el analizador léxico
-lexer = lex.lex()
-
-# Ejemplo de uso
-data = """
-# Define el nivel de ruido
-establece ruido_ambiente a 100
-
-si ruido_ambiente es_mayor_que 50, entonces:
-    repite 3 veces:
-        mover "este"
-    manifestar "Demasiado ruido."
-sino:
-    manifestar "Todo en silencio."
-"""
-
-# Dar el código de entrada al analizador léxico
-lexer.input(data)
-
-# Iterar sobre los tokens y mostrarlos
-print("--- Tokens generados ---")
-for tok in lexer:
-    print(f"Token: {tok.type}, Valor: '{tok.value}', Línea: {tok.lineno}")
+```powershell
+python .\caminante_lex.py
 ```
+
+---
+
+## Mapeo canónico de tokens (recomendado)
+
+Para evitar discrepancias entre el scanner y el parser, sugerimos el siguiente mapeo canonical entre lexemas y nombres de tokens (mayúsculas usadas por el parser):
+
+| Lexema / patrón | Token (nombre) | Notas |
+|---|---:|---|
+| `inicio` | `INICIO` | marca inicio del programa |
+| `fin` | `FIN` | marca fin del programa |
+| `mover` | `MOVER` | instrucción de movimiento |
+| `norte`, `sur`, `este`, `oeste` | `NORTE`, `SUR`, `ESTE`, `OESTE` | literales de dirección |
+| `manifestar` | `MANIFESTAR` | acción de salida |
+| `si`, `entonces`, `sino` | `SI`, `ENTONCES`, `SINO` | control condicional |
+| `mientras`, `hacer`, `finmientras` | `MIENTRAS`, `HACER`, `FINMIENTRAS` | control iterativo (forma larga) |
+| `repite`, `veces` | `REPETIR`, `VECES` | alternativa: `repite N veces:` |
+| `es_mayor_que`, `es_menor_que`, `igual`, `distinto`, `es` | `ES_MAYOR_QUE`, `ES_MENOR_QUE`, `IGUAL`, `DISTINTO`, `ES` | comparadores |
+| identificadores (regex) | `IDENT` | p.ej. `ruido_ambiente` |
+| números (entero/decimal) | `NUM` | p.ej. `50`, `3.14` |
+| cadenas entre comillas | `CADENA` | p.ej. `"Hola"` |
+| `:` | `COLON` | separador / inicio de bloque en la sintaxis `repite` |
+| `,` | `COMMA` | separador en condicionales |
+
+Notas:
+- Usar tokens en mayúsculas hace que el parser escrito con PLY (yacc) coincida con las producciones GRAMATICALES (p. ej. `program : INICIO bloque FIN`).
+- Normalizar los nombres (por ejemplo `NUM` vs `NUMBER` o `CADENA` vs `STRING`) evita confusiones; el scanner de referencia usa `NUM` y `CADENA`.

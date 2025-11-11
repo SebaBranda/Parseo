@@ -66,8 +66,8 @@
 		<transition>&#13;
 			<from>2</from>&#13;
 			<to>2</to>&#13;
-			<read>WHILE</read>&#13;
-			<pop>WHILE</pop>&#13;
+			<read>MIENTRAS</read>&#13;
+			<pop>MIENTRAS</pop>&#13;
 			<push/>&#13;
 		</transition>&#13;
 		<transition>&#13;
@@ -80,8 +80,8 @@
 		<transition>&#13;
 			<from>2</from>&#13;
 			<to>2</to>&#13;
-			<read>FIN_WHILE</read>&#13;
-			<pop>FIN_WHILE</pop>&#13;
+			<read>FINMIENTRAS</read>&#13;
+			<pop>FINMIENTRAS</pop>&#13;
 			<push/>&#13;
 		</transition>&#13;
 		<transition>&#13;
@@ -661,7 +661,7 @@
 		<transition>&#13;
 			<from>2</from>&#13;
 			<to>2</to>&#13;
-			<read>IGUAL_A</read>&#13;
+			<read>IGUAL</read>&#13;
 			<pop>COMPARADOR</pop>&#13;
 			<push/>&#13;
 		</transition>&#13;
@@ -943,7 +943,7 @@
 			<to>2</to>&#13;
 			<read/>&#13;
 			<pop>CICLO</pop>&#13;
-			<push>WHILE EXPRESION HACER INSTRUCCIONES FIN_WHILE</push>&#13;
+			<push>MIENTRAS EXPRESION HACER INSTRUCCIONES FINMIENTRAS</push>&#13;
 		</transition>&#13;
 		<transition>&#13;
 			<from>2</from>&#13;
