@@ -1,0 +1,16 @@
+# Ignorar backups locales y archivos de caché
+backups/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Byte-compiled / optimized / DLL files
+*.so
+
+# JFLAP and other large artifacts not needed in VCS
+*.jff
+
+# virtual environments
+venv/
+env/
