@@ -14,13 +14,11 @@ Pasos
 -----
 1) Abrir PowerShell y situarse en la raíz del repositorio (donde está este archivo):
 
-   Set-Location -Path "C:\Users\sebas\Documents\UNaHur\Parseo\Parseo"
+   Set-Location -Path "C:\Users\..."
 
 2) Instalar dependencias (si no están ya instaladas):
 
-   python -m pip install --user -r requirements.txt
-
-   Nota: `requirements.txt` ya incluye `ply`. Si prefieres instalar globalmente, quita `--user`.
+   python -m pip install -r requirements.txt
 
 3) Crear un archivo de ejemplo con un programa mínimo (opcional):
 
@@ -74,4 +72,3 @@ Si algo falla, copia aquí la salida del comando (stdout/stderr) y lo reviso. In
 
 Fin del documento
 -----------------
-Archivo creado automáticamente por la herramienta de organización del repo.
