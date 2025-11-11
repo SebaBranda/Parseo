@@ -102,9 +102,9 @@ def t_comment(t):
     pass
 
 
-# Error handling
+# Manejo de errores
 def t_error(t):
-    print(f"Illegal character '{t.value[0]}' at line {t.lineno}")
+    print(f"Carácter ilegal '{t.value[0]}' en la línea {t.lineno}")
     t.lexer.skip(1)
 
 

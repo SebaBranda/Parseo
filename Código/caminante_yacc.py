@@ -156,9 +156,9 @@ def p_error(p):
     global _parse_ok
     _parse_ok = False
     if p:
-        print(f"Syntax error at token {p.type} (value={p.value!r}) line {p.lineno}")
+        print(f"Error de sintaxis en token {p.type} (valor={p.value!r}) línea {p.lineno}")
     else:
-        print("Syntax error at EOF")
+        print("Error de sintaxis: fin de archivo")
 
 
 # Construir parser
@@ -174,7 +174,7 @@ def parse(data: str) -> bool:
     try:
         parser.parse(data, lexer=lex_lexer)
     except Exception as e:
-        print('Parsing exception:', e)
+        print('Excepción de parseo:', e)
         _parse_ok = False
     return _parse_ok
 
@@ -183,4 +183,4 @@ if __name__ == '__main__':
     sample = '''\ninicio\nmover norte\nsi obstaculo entonces\n    mover este\nfin\n'''
     print('Entrada de prueba:\n', sample)
     ok = parse(sample)
-    print('\nParse OK:', ok)
+    print('\nParse correcto:', ok)
