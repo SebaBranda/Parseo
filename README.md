@@ -29,3 +29,12 @@
 - [Scanner](https://github.com/SebaBranda/Parseo/blob/main/C%C3%B3digo/caminante_lex.py)
 
 - [Parser](https://github.com/SebaBranda/Parseo/blob/main/C%C3%B3digo/caminante_yacc.py)
+
+---
+
+### Pruebas
+
+- [Main de ejecución](https://github.com/SebaBranda/Parseo/blob/main/C%C3%B3digo/main.py)
+
+---
+Brandariz Sebastián
