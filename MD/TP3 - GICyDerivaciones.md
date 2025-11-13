@@ -3,7 +3,7 @@
 ```
 <programa> ::= INICIO <bloque> FIN
 
-<bloque> ::= <instruccion> <bloque> | ε
+<bloque> ::= <instruccion> <bloque> | λ
 
 <instruccion> ::= <movimiento> 
                 | <accion> 
@@ -16,7 +16,7 @@
 <accion> ::= MANIFESTAR <cadena>
 
 <condicional> ::= SI <expresion> ENTONCES <bloque> <sino_opcional>
-<sino_opcional> ::= SINO <bloque> | ε
+<sino_opcional> ::= SINO <bloque> | λ
 
 <bucle> ::= MIENTRAS <expresion> HACER <bloque> FINMIENTRAS
 
