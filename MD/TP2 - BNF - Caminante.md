@@ -117,3 +117,13 @@ Resumen de la gramática en BNF:
 -- Referencias a entidades/lugares inexistentes.  
 
 ---
+
+## AP
+
+Imagen del Autómata de Pila generado para "Caminante".
+
+<img width="750" height="349" alt="image" src="https://github.com/user-attachments/assets/82144063-a7af-44fc-811c-f068bccbfc8b" />
+
+
+
+---
