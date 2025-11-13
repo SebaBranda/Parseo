@@ -23,9 +23,9 @@ Dictada en la Universidad Nacional de Hurlingham, durante el 2do cuatrimestre de
 - T.P. N°8: [Semántica](https://github.com/SebaBranda/Parseo/blob/main/MD/TP8%20-%20Sem%C3%A1ntica.md) 
 
 ---
-### Lenguaje Caminante
+### Lenguaje "Caminante"
 
-- [Repositorio del Proyecto Caminante](https://github.com/SebaBranda/CLP)
+- [Repositorio del Proyecto "Caminante"](https://github.com/SebaBranda/CLP)
 
 ---
 ### Código: 
