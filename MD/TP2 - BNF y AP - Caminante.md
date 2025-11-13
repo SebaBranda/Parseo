@@ -124,6 +124,8 @@ Imagen del Autómata de Pila generado para "Caminante".
 
 <img width="750" height="349" alt="image" src="https://github.com/user-attachments/assets/82144063-a7af-44fc-811c-f068bccbfc8b" />
 
+Archivo:
 
+- [Caminante.jff](https://github.com/SebaBranda/Parseo/blob/main/C%C3%B3digo/CaminanteASD.jff)  
 
 ---
