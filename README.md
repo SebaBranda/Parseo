@@ -42,4 +42,4 @@ Dictada en la Universidad Nacional de Hurlingham, durante el 2do cuatrimestre de
 
 ---
 - [Profesor: Pablo Pandolfo](https://github.com/ppandomail)
-- Alumno: Brandariz Sebastián Pablo
+- Alumno: Sebastián Pablo Brandariz
