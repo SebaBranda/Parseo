@@ -41,5 +41,5 @@ Dictada en la Universidad Nacional de hurlingham, durante el 2do cuatrimestre de
 - [Main de ejecución](https://github.com/SebaBranda/Parseo/blob/main/C%C3%B3digo/main.py)
 
 ---
-[Profesor: Pablo Pandolfo](https://github.com/ppandomail)
-Alumno: Brandariz Sebastián Pablo
+- [Profesor: Pablo Pandolfo](https://github.com/ppandomail)
+- Alumno: Brandariz Sebastián Pablo
