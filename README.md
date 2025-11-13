@@ -8,7 +8,7 @@ Dictada en la Universidad Nacional de Hurlingham, durante el 2do cuatrimestre de
 
 - T.P. N°1: [Mapa Conceptual](https://github.com/SebaBranda/Parseo/blob/main/MD/TP1%20-%20Mapa%20Conceptual.md)  
 
-- T.P. N°2: [BNF](https://github.com/SebaBranda/Parseo/blob/main/MD/TP2%20-%20BNF%20-%20Caminante.md)  
+- T.P. N°2: [BNF y AP](https://github.com/SebaBranda/Parseo/blob/main/MD/TP2%20-%20BNF%20y%20AP%20-%20Caminante.md)  
 
 - T.P. N°3: [AFD](https://github.com/SebaBranda/Parseo/blob/main/MD/TP3%20-%20GICyDerivaciones.md)  
 
