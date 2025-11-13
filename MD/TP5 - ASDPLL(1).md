@@ -21,7 +21,7 @@ RESULTADO FINAL: ÉXITO: Cadena aceptada.
 
 | **Conjunto** | **Cálculo**                      | **Resultado**               |
 | :----------- | :------------------------------- | :-------------------------- |
-| **PRIM(C)**  | PRIM(C → SINO I) ∪ PRIM(C → ϵ)   | { SINO, ϵ }                 |
+| **PRIM(C)**  | PRIM(C → SINO I) ∪ PRIM(C → λ)   | { SINO, λ }                 |
 | **SIG(C)**   | SIG(C)                           | { FIN, MOVER, SI, SINO, … } |
 
 ## Conjuntos Predictivos (PRED)
@@ -29,11 +29,11 @@ RESULTADO FINAL: ÉXITO: Cadena aceptada.
 | **Producción** | **PRED(C → α)** | **Resultado**               |
 | :------------- | :-------------- | :-------------------------- |
 | **C → SINO I** | PRIM(SINO I)    | { SINO }                    |
-| **C → ϵ**      | SIG(C)          | { FIN, MOVER, SI, SINO, … } |
+| **C → λ**      | SIG(C)          | { FIN, MOVER, SI, SINO, … } |
 
 ## Test de Condición LL(1)
 
 | **Condición**                  | **Operación**                          | **Intersección** | **¿Es LL(1)?**                           |
 | :----------------------------- | :------------------------------------- | :--------------- | :--------------------------------------- |
-| PRED(C → SINO I) ∩ PRED(C → ϵ) | { SINO } ∩ { FIN, MOVER, SI, SINO, … } | { SINO }         | No, porque la intersección no es vacía   |
+| PRED(C → SINO I) ∩ PRED(C → λ) | { SINO } ∩ { FIN, MOVER, SI, SINO, … } | { SINO }         | No, porque la intersección no es vacía   |
 
