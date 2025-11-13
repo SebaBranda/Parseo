@@ -36,7 +36,9 @@ RESULTADO FINAL: ÉXITO: Cadena aceptada.
 | **Condición**                  | **Operación**                          | **Intersección** | **¿Es LL(1)?**                           |
 | :----------------------------- | :------------------------------------- | :--------------- | :--------------------------------------- |
 | PRED(C → SINO I) ∩ PRED(C → λ) | { SINO } ∩ { FIN, MOVER, SI, SINO, … } | { SINO }         | No, porque la intersección no es vacía   |
- 
+
+Esta producción no cumple la condición LL(1) porque los conjuntos predictivos de las dos alternativas comparten el terminal 'SINO', lo que provoca ambigüedad en la tabla predictiva.
+
 ---
 
 ## Ejemplo: producción LL(1)
@@ -77,3 +79,7 @@ RESULTADO FINAL: ÉXITO: Cadena aceptada.
 | **Condición**                          | **Operación**                    | **Intersección**   | **¿Es LL(1)?**                         |
 | :------------------------------------- | :-------------------------------- | :----------------- | :------------------------------------- |
 | PRED(A → MOVER D) ∩ PRED(A → FIN)      | PRIM(MOVER D) ∩ PRIM(FIN)         | { MOVER } ∩ { FIN } | Sí, porque la intersección es vacía   |
+
+Esta producción cumple LL(1) porque los conjuntos predictivos de cada alternativa son disjuntos ({MOVER} y {FIN}), por lo que no hay conflicto al escoger la producción en la tabla predictiva.
+
+---
