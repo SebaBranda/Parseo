@@ -1,5 +1,7 @@
 ## Traza del Analizador ASDP LL(1)
- - INICIO DEL PARSEO LL(1) 
+ - INICIO DEL PARSEO LL(1)
+
+   ´´´inicio mover norte fin´´´
 
 |PILA                            | ENTRADA             | ACCION                            |
 |--------------------------------|---------------------|-----------------------------------|
