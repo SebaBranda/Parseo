@@ -1,7 +1,7 @@
 # Parseo y Generación de Código
 
 Repositorio de la materia "Parseo y Generación de Código" 
-Dictada en la Universidad Nacional de hurlingham, durante el 2do cuatrimestre del año 2025.  
+Dictada en la Universidad Nacional de Hurlingham, durante el 2do cuatrimestre del año 2025.  
 
 ---
 ### Trabajos Prácticos
