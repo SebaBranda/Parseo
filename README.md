@@ -20,7 +20,7 @@ Dictada en la Universidad Nacional de hurlingham, durante el 2do cuatrimestre de
 
 - T.P. N°7: [TT y TS](https://github.com/SebaBranda/Parseo/blob/main/MD/TP7%20-%20TT%20y%20TS.md)  
 
-- T.P. N°8: [Generación de Código - Caminante](https://github.com/SebaBranda/Parseo/blob/main/MD/TP8%20-%20Sem%C3%A1ntica.md) 
+- T.P. N°8: [Semántica - Caminante](https://github.com/SebaBranda/Parseo/blob/main/MD/TP8%20-%20Sem%C3%A1ntica.md) 
 
 ---
 ### Lenguaje Caminante
