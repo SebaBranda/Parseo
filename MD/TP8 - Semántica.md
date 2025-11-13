@@ -88,7 +88,7 @@ TS:
 
 - si, entonces : palabras clave de control.
 
-Nota: si obstaculo fuera una variable/identificador, debió ser declarada antes; en nuestros ejemplos la damos por presente en TS como obstaculo: BOOL. Si en tu código real no existe, el paso 2 detectaría ERR: identificador no declarado.
+Nota: si 'obstaculo' fuera una variable/identificador, debió ser declarada antes; en nuestros ejemplos la damos por presente en TS como obstaculo: BOOL.
 
 ## 3.2. Cuadro de comprobaciones (paso a paso)
 
