@@ -1,4 +1,11 @@
-## ASD con retroceso 
+## Análisis Sintáctico Descendente con Retroceso (ASDB)
+
+Conceptos
+Consiste en recorrer el árbol de izquierda a derecha y de arriba abajo de manera que para la sentencia a analizar, se la compara con cada nodo del árbol que va recorriendo y en el caso de que los terminales a la izquierda del primer no terminal no coincidan, se termina la búsqueda por esa rama y se vuelve hacia atrás para buscar otra rama
+Problema: ineficiente
+
+Ejemplo
+ 
 - INICIO -> MOVER NORTE FIN
 
 | **Pila**         | **Entrada**              | **Transición**                               |
