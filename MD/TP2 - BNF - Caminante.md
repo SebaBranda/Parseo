@@ -86,7 +86,7 @@ Resumen de la gramática en BNF:
 -- `mas`, `menos`, `multiplicado_por`, `dividido_por`  
 
 ---
-A
+
 ## Especificaciones semánticas
 - **Tipado**:  
 -- Débil y dinámico.  
