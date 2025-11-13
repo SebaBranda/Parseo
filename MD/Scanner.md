@@ -47,7 +47,7 @@ Las transiciones se basan en el carácter actual y el estado en el que se encuen
 ### Estados y Transiciones del Autómata
 - Estado Inicial (S 0)
 
-    - Enfoque: Aquí comienza el análisis. El autómata determina qué tipo de token se está formando.
+    - Enfoque: El autómata determina qué tipo de token se está formando.
 
     - Transiciones:
 
@@ -145,17 +145,11 @@ En ese momento, el escáner "emite" el token y el proceso se repite desde S 0 pa
 | **3 (Cadena)** | 3 | 3 | **0** | 3 | 3 | 3 | 3 | 3 | 3 | 3 | **CADENA** | 1 |
 | **4** | - | - | - | - | - | - | - | - | - | - | **COLON** | 0 |
 | **5** | - | - | - | - | - | - | - | - | - | - | **COMMA** | 0 |
-
 | **6 (Comentario)** | 6 | 6 | 6 | 6 | 6 | 6 | 6 | 6 | **0** | 6 | - | - |
 
 ---
 
 Implementación del scanner
-
-El código de implementación del scanner se mantiene como archivo separado y canonico: `caminante_lex.py`.
-Para evitar inconsistencias, no mantengas una copia completa del código dentro de esta documentación. Si necesitas ver o modificar el lexer, edita `caminante_lex.py` directamente.
-
-Ejecuta el scanner de prueba con:
 
 ```powershell
 python .\caminante_lex.py
@@ -163,9 +157,7 @@ python .\caminante_lex.py
 
 ---
 
-## Mapeo canónico de tokens (recomendado)
-
-Para evitar discrepancias entre el scanner y el parser, sugerimos el siguiente mapeo canonical entre lexemas y nombres de tokens (mayúsculas usadas por el parser):
+## Mapeo canónico de tokens
 
 | Lexema / patrón | Token (nombre) | Notas |
 |---|---:|---|
@@ -184,6 +176,4 @@ Para evitar discrepancias entre el scanner y el parser, sugerimos el siguiente m
 | `:` | `COLON` | separador / inicio de bloque en la sintaxis `repite` |
 | `,` | `COMMA` | separador en condicionales |
 
-Notas:
-- Usar tokens en mayúsculas hace que el parser escrito con PLY (yacc) coincida con las producciones GRAMATICALES (p. ej. `program : INICIO bloque FIN`).
-- Normalizar los nombres (por ejemplo `NUM` vs `NUMBER` o `CADENA` vs `STRING`) evita confusiones; el scanner de referencia usa `NUM` y `CADENA`.
+---
